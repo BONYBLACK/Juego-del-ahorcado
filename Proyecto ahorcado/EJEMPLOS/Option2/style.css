@@ -43,12 +43,6 @@ body {
     text-transform: capitalize;
 }
 
-#options-container button:hover {
-    cursor: pointer;
-    background: rgb(245, 220, 0);
-    transition: .2s;
-}
-
 #options-container button:disabled {
     border: 3px solid #808080;
     color: #808080;

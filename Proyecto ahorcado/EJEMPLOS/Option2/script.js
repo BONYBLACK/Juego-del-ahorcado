@@ -9,7 +9,7 @@ const resultText = document.getElementById("result-text");
 
 //Options values for buttons
 let options = {
-  frutas: [
+  fruits: [
     "Apple",
     "Blueberry",
     "Mandarin",
@@ -17,8 +17,8 @@ let options = {
     "Pomegranate",
     "Watermelon",
   ],
-  animales: ["Hedgehog", "Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra"],
-  paises: [
+  animals: ["Hedgehog", "Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra"],
+  countries: [
     "India",
     "Hungary",
     "Kyrgyzstan",
@@ -36,7 +36,7 @@ let chosenWord = "";
 
 //Display option buttons
 const displayOptions = () => {
-  optionsContainer.innerHTML += `<h3>Seleccione una opción</h3>`;
+  optionsContainer.innerHTML += `<h3>Please Select An Option</h3>`;
   let buttonCon = document.createElement("div");
   for (let value in options) {
     buttonCon.innerHTML += `<button class="options" onclick="generateWord('${value}')">${value}</button>`;
@@ -120,7 +120,7 @@ const initializer = () => {
             winCount += 1;
             //if winCount equals word lenfth
             if (winCount == charArray.length) {
-              resultText.innerHTML = `<h2 class='win-msg'>Ganaste!!</h2><p>La palabra era <span>${chosenWord}</span></p>`;
+              resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
               //block all buttons
               blocker();
             }
@@ -133,7 +133,7 @@ const initializer = () => {
         drawMan(count);
         //Count==6 because head,body,left arm, right arm,left leg,right leg
         if (count == 6) {
-          resultText.innerHTML = `<h2 class='lose-msg'>Perdiste!!</h2><p>La palabra era <span>${chosenWord}</span></p>`;
+          resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>The word was <span>${chosenWord}</span></p>`;
           blocker();
         }
       }
