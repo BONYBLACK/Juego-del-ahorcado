@@ -8,6 +8,76 @@ const canvas = document.getElementById("canvas");
 const resultText = document.getElementById("result-text");
 const pista_input = document.querySelector(".pista_input")
 
+/* Arreglos */
+var teclas_array = new Array();
+var letras_array = new Array();
+var categorias_array = new Array();
+var palabras_array = new Array();
+
+/* Variables de control */
+var aciertos = 0;
+var errores = 0;
+
+console.log("Categorias: " + categorias_array);
+
+/* Palabras */
+
+//FRUTAS
+palabras_array.push("Manzana");
+palabras_array.push("Uvas");
+palabras_array.push("Mandarina");
+palabras_array.push("Platano");
+palabras_array.push("Naranja");
+palabras_array.push("Melon");
+
+//ANIMALES
+palabras_array.push("Perro");
+palabras_array.push("Pollo");
+palabras_array.push("Gato");
+palabras_array.push("Caballo");
+palabras_array.push("Pajaro");
+palabras_array.push("Zebra");
+
+//Paises
+palabras_array.push("India");
+palabras_array.push("Hungary");
+palabras_array.push("Mexico");
+palabras_array.push("Canada");
+palabras_array.push("Francia");
+palabras_array.push("Colombia");
+
+//Famosos
+palabras_array.push("Tom Holland");
+palabras_array.push("Shakira");
+palabras_array.push("Harry Styles");
+palabras_array.push("Kenia Os");
+palabras_array.push("IU");
+palabras_array.push("Ariana Grande");
+
+
+console.log("Arreglo " + palabras_array);
+
+// for (let i = 0; i <= 5; i++) {
+//     categorias_array.push(palabras_array[0] = "Frutas:" + palabras_array[i]);
+// }
+
+console.log(palabras_array[0]);
+// let categorias_array = [["Frutas", palabras_array[0]], [3, 4]]
+console.log("ARREGLO:" + categorias_array)
+
+// categorias_array.push(palabras_array[0] = "Frutas:" + palabras_array[0]);
+// categorias_array.push(palabras_array[0] = "Frutas:" + palabras_array[1]);
+// categorias_array.push(palabras_array[0] = "Frutas:" + palabras_array[2]);
+// categorias_array.push(palabras_array[0] = "Frutas:" + palabras_array[3]);
+// categorias_array.push(palabras_array[0] = "Frutas:" + palabras_array[4]);
+// categorias_array.push(palabras_array[1] = "Animales:" + palabras_array[1]);
+// categorias_array.push(palabras_array[1] = "Paises:" + palabras_array[1]);
+// categorias_array.push(palabras_array[1] = "Famosos:" + palabras_array[1]);
+
+
+categorias_array.push(palabras_array[0]);
+console.log("Categorias: " + categorias_array);
+
 
 //Options values for buttons
 let options = {
@@ -55,7 +125,9 @@ const displayOptions = () => {
   optionsContainer.innerHTML += `<h3>Seleccione una opción</h3>`;
   let buttonCon = document.createElement("div");
   for (let value in options) {
+    console.log("Value: " + value)
     buttonCon.innerHTML += `<button class="options" onclick="generateWord('${value}')">${value}</button>`;
+    console.log("Value final: " + value)
   }
   optionsContainer.appendChild(buttonCon);
 };
@@ -115,7 +187,7 @@ const generateWord = (optionValue) => {
         case 'Naranja':
           pista = "Fruta que es llamada como su color";
           break;
-        case 'Melón':
+        case 'Melon':
           pista = "Corazón de...";
           break;
 

@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Juego del ahorcado</title>
-        <LINK REL=StyleSheet HREF="css/Estilo.css" TYPE="text/css" MEDIA=screen>
-        <script src="js/jquery-2.1.4.js"></script>
-        <script src="js/leerPalabras.js"></script>
-        
-    </head>
-    <body class="body">
-        <h1>"El juego del ahorcado"</h1>
-        <canvas id="pantalla" width="960px" height="450px">  Tu navegador no soporta Canvas. </canvas>
-        <!-- El boton que recargar la pagina y generar una nueva palabra  -->
-        <button id="boton" type="reset" onclick="javascript:window.location.reload();">Volver a Jugar</button>
-        <script>
+
             
             var ctx;
             var canvas;
@@ -96,8 +81,8 @@
             /// Funcion para dar una pista la usuario ////
             function pistaFunction(numero){
                 let pista = ""; // Se crea la variable local pista que contendra nuestra frase de pista
-                pista = pistas_array[numero]
-                 // palabra en el canvas , en este ejemplo se pinta arriba a la izquierda
+                pista=pistas_array[numero]
+                ///palabra en el canvas , en este ejemplo se pinta arriba a la izquierda //
                 ctx.fillStyle = "blue";  
                 ctx.font = "bold 25px Courier";
                 ctx.fillText(pista, 10, 20); 
@@ -155,13 +140,14 @@
             }
             
             /* dibujar monito y partes del pj segun sea el caso */
-            function horca(errores){
+            
+                    function horca(errores){
                 var imagen = new Image();
-                imagen.src = "imagenes/mono"+errores+".png";
+                imagen.src = "img/ahorcado"+errores+".png";
                 imagen.onload = function(){
                     ctx.drawImage(imagen, 390, 0, 230, 225);
                 }
-              
+                
             }
             
             /* ajustar coordenadas */
@@ -247,6 +233,27 @@
                  setTimeout(function(){jugar();},3000);
                
             }
-        </script>
-    </body>
-</html>
+        function cargarPalabras(){
+
+console.log("iniciando cargarPalabras");
+
+$.get('http://localhost/Ahorcada/php/base.php',
+("token=123456789"), function(data){
+
+var info= JSON.parse(data);
+
+var palabras=info.palabras;
+if (palabras.length>0) {
+
+palabras.forEach(agregarArreglo);
+}
+
+});
+};
+function agregarArreglo(item)
+{ 
+	 palabras_array.push(item.palabra);
+	 pistas_array.push(item.pista);
+	 console.log(item.palabra);
+	 console.log(item.pista);
+}

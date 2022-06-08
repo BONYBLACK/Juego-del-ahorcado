@@ -7,10 +7,27 @@ const newGameButton = document.getElementById("new-game-button");
 const canvas = document.getElementById("canvas");
 const resultText = document.getElementById("result-text");
 const pista_input = document.querySelector(".pista_input")
+const btnChangeColor = document.querySelector(".btnChangeColor")
+const body = document.querySelector(".body")
+const value_input = document.querySelector(".input_color");
 
 
-//Options values for buttons
-let options = {
+btnChangeColor.addEventListener("click", function () {
+    let color = value_input.value;
+    body.style.background = color;
+})
+
+/* Arreglos */
+var teclas_array = new Array();
+var letras_array = new Array();
+
+/* Variables de control */
+var aciertos = 0;
+var errores = 0;
+
+/* Palabras */
+
+let palabras_array = {
   frutas: [
     "Manzana",
     "Uvas",
@@ -54,8 +71,10 @@ let chosenWord = "";
 const displayOptions = () => {
   optionsContainer.innerHTML += `<h3>Seleccione una opción</h3>`;
   let buttonCon = document.createElement("div");
-  for (let value in options) {
+  for (let value in palabras_array) {
+    console.log("Value: " + value)
     buttonCon.innerHTML += `<button class="options" onclick="generateWord('${value}')">${value}</button>`;
+    console.log("Value final: " + value)
   }
   optionsContainer.appendChild(buttonCon);
 };
@@ -91,7 +110,7 @@ const generateWord = (optionValue) => {
   letterContainer.classList.remove("hide");
   userInputSection.innerText = "";
 
-  let optionArray = options[optionValue];
+  let optionArray = palabras_array[optionValue];
   //choose random word
   chosenWord = optionArray[Math.floor(Math.random() * optionArray.length)];
   console.log("1: " + chosenWord);
@@ -115,7 +134,7 @@ const generateWord = (optionValue) => {
         case 'Naranja':
           pista = "Fruta que es llamada como su color";
           break;
-        case 'Melón':
+        case 'Melon':
           pista = "Corazón de...";
           break;
 
