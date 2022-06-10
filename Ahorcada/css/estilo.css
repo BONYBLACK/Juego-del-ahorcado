@@ -1,0 +1,53 @@
+body { background: linear-gradient(90deg, rgb(58, 58, 58) 0%, rgb(48, 48, 48) 100%); } 
+
+body {
+     width: 960px;
+     margin: 0 auto;
+}
+
+.img_title {
+    position: relative;
+    height: 100px;
+    right: 650px;
+    top: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Made TOMMY;
+    font-size: 50px;
+    display: inline;
+    color: white;
+}
+
+canvas {
+    border-radius: 4px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+
+
+#pantalla {
+    border: groove 4px rgb(203, 203, 203);
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1.2em 2.4em rgba(8, 6, 0, 0.25);
+}
+
+ #boton {
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: Made TOMMY;
+    padding: 0.6em 1.2em;
+    font-size: 20px;
+    font-weight: 500;
+    border: 3px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+#boton:hover {
+    background: rgb(255, 239, 10);
+}
